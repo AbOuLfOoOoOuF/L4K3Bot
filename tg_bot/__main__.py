@@ -184,7 +184,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
     if update.effective_chat.type == "private":
         if args and len(args) >= 1:
             if args[0].lower() == "help":
-                send_help(update.effective_chat.id, text=(gs(chat.id, "pm_help_text".format(bot_firstname))), parse_mode=ParseMode.MARKDOWN)
+                send_help(update.effective_chat.id, (gs(chat.id, "pm_help_text")))
             elif args[0].lower() == "markdownhelp":
                 IMPORTED["extras"].markdown_help_sender(update)
             elif args[0].lower() == "nations":
@@ -426,7 +426,7 @@ def get_help(update, context):
         )
 
     else:
-        send_help(chat.id, text=(gs(chat.id, "pm_help_text".format(escape_markdown(bot_firstname)))), parse_mode=ParseMode.MARKDOWN)
+        send_help(chat.id, (gs(chat.id, "pm_help_text")))
 
 
 def send_settings(chat_id, user_id, user=False):
